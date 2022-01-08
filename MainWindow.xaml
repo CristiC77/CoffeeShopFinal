@@ -1,0 +1,92 @@
+﻿<Window x:Name="frmMain" x:Class="CoffeeShopFinal.MainWindow"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Coffee Shop" Height="710.464" Width="1053.521" Loaded="frmMain_Loaded_1">
+    <Window.Background>
+        <ImageBrush ImageSource="OFFICIAL_HOUNDSTOOTH_JETTISON_1-scaled.jpg"/>
+    </Window.Background>
+    <Grid MenuItem.Click="MakingCoffeeandTea_Click">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="302*"/>
+            <ColumnDefinition Width="47*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblTitle" Content="Coffee Madness" HorizontalAlignment="Left" Margin="406,34,0,0" VerticalAlignment="Top" Width="301" Height="64" FontSize="36" FontStyle="Italic" FontFamily="Verdana" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}" Background="{x:Null}"/>
+        <GroupBox x:Name="gbClassics" Header="Classics" HorizontalAlignment="Left" Height="197" Margin="57,118,0,0" VerticalAlignment="Top" Width="332" FontSize="22" FontWeight="SemiBold" FontStyle="Italic">
+            <Canvas Height="185" Margin="0,-28,-2,0" VerticalAlignment="Top">
+                <Label x:Name="lblCappuccino" Content="Cappuccino" Canvas.Left="10" Canvas.Top="39" Width="118" FontSize="20" Background="#FFDAC1C1"/>
+                <Label x:Name="lblCaffeLatte" Content="Caffe Latte" Canvas.Left="10" Canvas.Top="84" Width="118" FontSize="20" Background="#FFFDF0F0"/>
+                <Label x:Name="lblEspresso" Content="Espresso" Canvas.Left="10" Canvas.Top="129" Width="118" Background="#FFC86565" FontSize="20"/>
+                <TextBox x:Name="txtCappuccino" Height="37" Canvas.Left="171" TextWrapping="Wrap" Text="    0" Canvas.Top="39" Width="74" IsReadOnly="True" FontStyle="Normal" FontSize="22"/>
+                <TextBox x:Name="txtCaffeLatte" Height="37" Canvas.Left="171" TextWrapping="Wrap" Text="    0" Canvas.Top="84" Width="74" FontSize="22" FontStyle="Normal" IsReadOnly="True"/>
+                <TextBox x:Name="txtEspresso" Height="37" Canvas.Left="171" TextWrapping="Wrap" Text="    0 " Canvas.Top="129" Width="74" FontSize="22" FontStyle="Normal" IsReadOnly="True"/>
+            </Canvas>
+        </GroupBox>
+        <GroupBox x:Name="gbSpecial" Header="Specialities" HorizontalAlignment="Left" Height="197" Margin="394,118,0,0" VerticalAlignment="Top" Width="313" FontSize="22" FontStyle="Italic" FontWeight="SemiBold">
+            <Canvas HorizontalAlignment="Left" Height="219" VerticalAlignment="Top" Width="303" Margin="0,-36,-2.2,-5.4">
+                <Label x:Name="lblVanilla" Content=" Vanilla Latte&#xD;&#xA;" Canvas.Left="27" Canvas.Top="42" Width="134" FontSize="20" FontStyle="Normal" FontWeight="Medium" Height="35" Background="#FFFFD382"/>
+                <Label x:Name="lblCaramel" Content="Caramel Latte" Canvas.Left="27" Canvas.Top="82" RenderTransformOrigin="0.543,0.173" Width="134" FontSize="20" FontStyle="Normal" FontWeight="Medium" Background="#FFDC8E54"/>
+                <Label x:Name="lblMocha" Content="Caffe Mocha" Canvas.Left="27" Canvas.Top="132" Width="134" FontStyle="Normal" FontWeight="Medium" FontSize="20" Background="#FF9F541B"/>
+                <TextBox x:Name="txtVanilla" Height="35" Canvas.Left="185" TextWrapping="Wrap" Text="     0" Canvas.Top="42" Width="90" IsReadOnly="True" FontStyle="Normal" FontSize="22"/>
+                <TextBox x:Name="txtCaramel" Height="35" Canvas.Left="185" TextWrapping="Wrap" Text="     0" Canvas.Top="83" Width="90" FontStyle="Normal" IsReadOnly="True"/>
+                <TextBox x:Name="txtMocha" Height="37" Canvas.Left="185" TextWrapping="Wrap" Text="     0" Canvas.Top="132" Width="90" FontStyle="Normal" IsReadOnly="True"/>
+            </Canvas>
+        </GroupBox>
+        <GroupBox x:Name="gbTea" Header="Tea" HorizontalAlignment="Left" Height="197" Margin="712,118,0,0" VerticalAlignment="Top" Width="308" FontSize="22" FontStyle="Italic" FontWeight="SemiBold" Grid.ColumnSpan="2">
+            <Canvas HorizontalAlignment="Left" Height="192" Margin="0,-19,-12,0" VerticalAlignment="Top" Width="308">
+                <Label x:Name="lblPeppermint" Content="Peppermint" Canvas.Left="10" Canvas.Top="39" Width="139" FontStyle="Normal" FontWeight="Medium" Background="#FFFFE258"/>
+                <Label x:Name="lblForestBerry" Content="Forest Berry&#xD;&#xA;" Canvas.Top="79" Canvas.Left="10" Width="139" Height="40" FontSize="20" FontStyle="Normal" FontWeight="Medium" Background="#FFB91874"/>
+                <Label x:Name="lblMatcha" Content="Matcha" Canvas.Left="10" Canvas.Top="124" Width="139" FontStyle="Normal" FontWeight="Medium" FontSize="20" Background="#FFB4D039"/>
+                <TextBox x:Name="txtPeppermint" Height="36" Canvas.Left="179" TextWrapping="Wrap" Text="      0" Canvas.Top="43" Width="95" FontStyle="Normal" IsReadOnly="True"/>
+                <TextBox x:Name="txtForestBerry" Height="35" Canvas.Left="179" TextWrapping="Wrap" Text="      0" Canvas.Top="84" Width="95" FontStyle="Normal" IsReadOnly="True"/>
+                <TextBox x:Name="txtMatcha" Height="35" Canvas.Left="179" TextWrapping="Wrap" Text="      0" Canvas.Top="126" Width="95" FontStyle="Normal" IsReadOnly="True"/>
+            </Canvas>
+        </GroupBox>
+        <GroupBox x:Name="gbSale" Header="Current Sale" HorizontalAlignment="Left" Height="288" Margin="62,320,0,0" VerticalAlignment="Top" Width="958" FontSize="20" FontWeight="Bold" Foreground="Black" Grid.ColumnSpan="2">
+            <Canvas HorizontalAlignment="Left" Margin="0,-25,-1.6,-23" Width="948">
+                <Label x:Name="lblQuantity" Content="Quantity" Canvas.Left="10" Canvas.Top="43" Width="99" Height="37" Background="#FFFFE258" FontWeight="SemiBold"/>
+                <TextBox x:Name="txtQuantity" Height="37" Canvas.Left="133" TextWrapping="Wrap" Text="   0" Canvas.Top="43" Width="54" FontWeight="SemiBold" FontSize="22"/>
+                <Label x:Name="lblType" Content="Type" Canvas.Left="231" Canvas.Top="43" Height="37" Width="84" Background="#FFFFE258" FontWeight="SemiBold"/>
+                <ComboBox x:Name="cmbType" Canvas.Left="338" Canvas.Top="43" Width="165" Height="37" SelectionChanged="cmbType_SelectionChanged_1" />
+                <Label x:Name="lblPrice" Content="Price" Canvas.Left="550" Canvas.Top="43" Background="#FFFFE258" FontWeight="SemiBold" Width="100"/>
+                <TextBox x:Name="txtPrice" Height="37" Canvas.Left="654" TextWrapping="Wrap" Text="  0" Canvas.Top="43" Width="69" IsReadOnly="True" FontWeight="SemiBold" FontSize="22"/>
+                <ListBox x:Name="lstSale" Height="130" Canvas.Left="10" Canvas.Top="101" Width="713"/>
+                <Label x:Name="lblTotal" Content="Total" Canvas.Left="550" Canvas.Top="236" Width="100" Background="#FFFFE258" FontWeight="SemiBold" Height="37"/>
+                <TextBox x:Name="txtTotal" Height="37" Canvas.Left="654" TextWrapping="Wrap" Text="   0" Canvas.Top="236" Width="69" FontWeight="SemiBold" IsReadOnly="True" FontSize="22"/>
+                <Button x:Name="btnAdd" Content="Add To Sale" Canvas.Left="766" Canvas.Top="101" Width="141" Height="38" FontWeight="SemiBold" Foreground="Black" Background="#FFB4D039" Click="btnAdd_Click"/>
+                <Button x:Name="btnRemoveItem" Content="Remove Item" Canvas.Left="766" Canvas.Top="160" Width="141" RenderTransformOrigin="0.24,1.381" Height="38" Background="#FFF02424" FontWeight="SemiBold" Click="btnRemoveItem_Click" />
+                <Button x:Name="btnCheckout" Content="Checkout" Canvas.Left="766" Canvas.Top="234" Width="141" Height="37" Background="#FFB4D039" Click="btnCheckout_Click_1"/>
+            </Canvas>
+        </GroupBox>
+        <Menu x:Name="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="131" Margin="57,34,0,0" Background="#FFFDF0F0">
+            <MenuItem Header="File">
+                <MenuItem Header="Exit" Click="exitMenuItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Coffee and Tea">
+                <MenuItem Header="Make">
+                    <MenuItem x:Name="ClassicsMenuItem" Header="Classics">
+                        <MenuItem x:Name="CappuccinoMenuItem" Header="Cappuccino" Click="CappuccinoMenuItem_Click"/>
+                        <MenuItem x:Name="CaffeLatteMenuItem" Header="Caffe Latte" Click="CaffeLatteMenuItem_Click"/>
+                        <MenuItem x:Name="EspressoMenuItem" Header="Espresso" Click="EspressoMenuItem_Click"/>
+                    </MenuItem>
+                    <MenuItem x:Name="SpecialitiesMenuItem" Header="Specialities">
+                        <MenuItem x:Name="VanillaLatteMenuItem" Header="Vanilla Latte" Click="VanillaLatteMenuItem_Click"/>
+                        <MenuItem x:Name="CaramelLatteMenuItem" Header="CaramelLatte" Click="CaramelLatteMenuItem_Click"/>
+                        <MenuItem x:Name="CaffeMochaMenuItem" Header="Caffe Mocha" Click="CaffeMochaMenuItem_Click"/>
+                    </MenuItem>
+                    <MenuItem x:Name="TeaMenuItem" Header="Tea">
+                        <MenuItem x:Name="PeppermintMenuItem" Header="Peppermint" Click="PeppermintMenuItem_Click"/>
+                        <MenuItem x:Name="ForestBerryMenuItem" Header="Forest Berry" Click="ForestBerryMenuItem_Click"/>
+                        <MenuItem x:Name="MatchaMenuItem" Header="Matcha" Click="MatchaMenuItem_Click"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Stop"/>
+            </MenuItem>
+        </Menu>
+
+    </Grid>
+</Window>
+       
+    
